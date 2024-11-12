@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: rgb(189, 189, 202);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .field{
+            height: 100px;
+            width: 320px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .field2{
+            display: flex;
+            justify-content: center;
+        }
+        .field3{
+            display: flex;
+            justify-content: center;
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            background: rgb(189, 189, 202);
+            border-radius: 4px;
+            box-shadow: 5px 5px 3px rgb(97, 95, 95),
+             -5px -5px 4px rgb(216, 213, 213);
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             font-size: 70px;
+        }
+        .dte{
+            font-size: 30px;
+            text-shadow: 5px 5px 3px rgb(97, 95, 95);
+             
+        }
+        .wDay{
+            font-size: 25px;
+            text-shadow: 5px 5px 3px rgb(97, 95, 95);
+        }
+    </style>
+</head>
+<body>
+ <div class="full">
+    <div class="field">
+        <div class="box" id="hr"></div>
+        <div class="box" id="min"></div>
+        <div class="box" id="sec"></div>
+    </div><br>
+    <div class="field2">
+        <div class="dte" id="d"></div><div class="dte"> -</div>
+        <div class="dte" id="m"></div><div class="dte"> -</div>
+        <div class="dte" id="y"></div>
+    </div>
+    <div class="field3">
+        <div class="wDay" id="wDay"></div>
+    </div>
+ </div>
+        <script>
+            let box1 = document.getElementById("hr");
+            let box2 = document.getElementById("min");
+            let box3 = document.getElementById("sec");
+            let iday = document.getElementById("d");
+            let imonth = document.getElementById("m");
+            let iyear = document.getElementById("y");
+            let iweekDay = document.getElementById("wDay");
+
+            
+
+            setInterval(() =>{
+                let all = new Date;
+            let hour = all.getHours();
+            let minute = all.getMinutes();
+            let second = all.getSeconds();
+            let day = all.getDate();
+            let month = all.getMonth();
+            let year = all.getFullYear();
+            let weekDay = all.getDay();
+            let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            let wDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+               
+               if(hour < 10){
+                box1.innerText = ("0".concat(hour));
+               }else{
+                box1.innerText = hour;
+               }
+              if(minute < 10){
+                box2.innerText = ("0".concat(minute));
+              }else{
+                box2.innerText = minute;
+              }
+              if(second < 10){
+                box3.innerText = ("0".concat(second));
+              }else{
+                box3.innerText = second;
+              }
+              if(day < 10){
+                iday.innerText = ("0".concat(day));
+              }else{
+                iday.innerText = day;
+              }
+                imonth.innerText = months[month];
+                iyear.innerText = year;
+                iweekDay.innerText = wDays[weekDay];
+            },1000);
+            
+        </script>
+    
+</body>
+</html>
